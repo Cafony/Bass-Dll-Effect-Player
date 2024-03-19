@@ -58,9 +58,13 @@ namespace Bass_Dll_Player
             int stream = input;
             Bass.BASS_ChannelSetFX(stream, BASSFXType.BASS_FX_BFX_PHASER, 1);
             BASS_BFX_PHASER parametros = new BASS_BFX_PHASER();
-            parametros.fDryMix = -1;
-            parametros.fWetMix = +2;
-            parametros.fFeedback = +1;
+            parametros.fDryMix = 0;
+            parametros.fFreq = 0;
+            parametros.fDryMix = 0;
+            parametros.fFeedback = 0;
+            parametros.fRate = 0;
+            parametros.fRange = 0;
+            //parametros.fFeedback = +1f;
             
             Bass.BASS_FXSetParameters(stream, parametros);
 
