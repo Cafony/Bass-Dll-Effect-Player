@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Bass_Dll_Player.Properties
+namespace Bass_Dll_PitchShift.Properties
 {
 
 

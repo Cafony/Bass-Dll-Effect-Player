@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Bass_Dll_Player
+namespace Bass_Dll_PitchShift
 {
     internal static class Program
     {
@@ -16,7 +16,7 @@ namespace Bass_Dll_Player
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new pitchshift());
         }
     }
 }
