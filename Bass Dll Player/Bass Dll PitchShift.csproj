@@ -66,6 +66,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="myFuntions.cs" />
+    <Compile Include="speedchange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="speedchange.Designer.cs">
+      <DependentUpon>speedchange.cs</DependentUpon>
+    </Compile>
     <Compile Include="pitchshift.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +81,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="speedchange.resx">
+      <DependentUpon>speedchange.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="pitchshift.resx">
       <DependentUpon>pitchshift.cs</DependentUpon>
     </EmbeddedResource>

@@ -16,7 +16,8 @@ namespace Bass_Dll_PitchShift
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new pitchshift());
+            //Application.Run(new pitchshift());
+            Application.Run(new speedchange());
         }
     }
 }
