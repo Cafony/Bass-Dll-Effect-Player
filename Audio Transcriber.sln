@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bass Dll PitchShift", "Bass Dll Player\Bass Dll PitchShift.csproj", "{BA05E61A-9CD7-429D-B270-B73E49F4DAC5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Audio Transcriber", "Bass Dll Player\Audio Transcriber.csproj", "{BA05E61A-9CD7-429D-B270-B73E49F4DAC5}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Install", "Install\Install.vdproj", "{01184F17-1300-4499-9185-EA62EEFC5D4A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,8 @@ Global
 		{BA05E61A-9CD7-429D-B270-B73E49F4DAC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA05E61A-9CD7-429D-B270-B73E49F4DAC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA05E61A-9CD7-429D-B270-B73E49F4DAC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01184F17-1300-4499-9185-EA62EEFC5D4A}.Debug|Any CPU.ActiveCfg = Debug
+		{01184F17-1300-4499-9185-EA62EEFC5D4A}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

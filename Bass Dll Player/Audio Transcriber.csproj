@@ -14,6 +14,7 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -26,7 +27,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -66,12 +66,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="myFuntions.cs" />
-    <Compile Include="speedchange.cs">
+    <Compile Include="about.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="speedchange.Designer.cs">
-      <DependentUpon>speedchange.cs</DependentUpon>
+    <Compile Include="about.Designer.cs">
+      <DependentUpon>about.cs</DependentUpon>
+    </Compile>
+    <Compile Include="equalizer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="equalizer.Designer.cs">
+      <DependentUpon>equalizer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="monoStereo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="monoStereo.Designer.cs">
+      <DependentUpon>monoStereo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="myFuntions.cs" />
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="notepad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="notepad.Designer.cs">
+      <DependentUpon>notepad.cs</DependentUpon>
     </Compile>
     <Compile Include="pitchshift.cs">
       <SubType>Form</SubType>
@@ -79,13 +103,49 @@
     <Compile Include="pitchshift.Designer.cs">
       <DependentUpon>pitchshift.cs</DependentUpon>
     </Compile>
+    <Compile Include="Eq_HighPass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Eq_HighPass.Designer.cs">
+      <DependentUpon>Eq_HighPass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlayPauseStop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlayPauseStop.Designer.cs">
+      <DependentUpon>PlayPauseStop.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="speedchange.resx">
-      <DependentUpon>speedchange.cs</DependentUpon>
+    <Compile Include="speed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="speed.Designer.cs">
+      <DependentUpon>speed.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="about.resx">
+      <DependentUpon>about.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="equalizer.resx">
+      <DependentUpon>equalizer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="monoStereo.resx">
+      <DependentUpon>monoStereo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="notepad.resx">
+      <DependentUpon>notepad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="pitchshift.resx">
       <DependentUpon>pitchshift.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Eq_HighPass.resx">
+      <DependentUpon>Eq_HighPass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlayPauseStop.resx">
+      <DependentUpon>PlayPauseStop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -96,6 +156,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="speed.resx">
+      <DependentUpon>speed.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Help\BassNet.chm" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

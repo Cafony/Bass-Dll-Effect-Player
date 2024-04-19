@@ -45,15 +45,21 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.trackBarPitch = new System.Windows.Forms.TrackBar();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label1ValorPitch = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarPitch)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(152, 202);
+            this.button1.Location = new System.Drawing.Point(141, 329);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(56, 23);
+            this.button1.Size = new System.Drawing.Size(70, 25);
             this.button1.TabIndex = 0;
             this.button1.Text = "Play";
             this.button1.UseVisualStyleBackColor = true;
@@ -93,9 +99,9 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(223, 202);
+            this.button3.Location = new System.Drawing.Point(217, 329);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(52, 23);
+            this.button3.Size = new System.Drawing.Size(70, 25);
             this.button3.TabIndex = 5;
             this.button3.Text = "Stop";
             this.button3.UseVisualStyleBackColor = true;
@@ -137,9 +143,9 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(35, 202);
+            this.button5.Location = new System.Drawing.Point(65, 329);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(71, 23);
+            this.button5.Size = new System.Drawing.Size(70, 25);
             this.button5.TabIndex = 10;
             this.button5.Text = "Open File";
             this.button5.UseVisualStyleBackColor = true;
@@ -148,7 +154,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(202, 232);
+            this.label3.Location = new System.Drawing.Point(34, 195);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(154, 13);
             this.label3.TabIndex = 11;
@@ -213,11 +219,66 @@
             this.label8.TabIndex = 17;
             this.label8.Text = "BASS_BFX_PITCHSHIFT";
             // 
+            // trackBarPitch
+            // 
+            this.trackBarPitch.LargeChange = 1;
+            this.trackBarPitch.Location = new System.Drawing.Point(33, 260);
+            this.trackBarPitch.Maximum = 6;
+            this.trackBarPitch.Minimum = -6;
+            this.trackBarPitch.Name = "trackBarPitch";
+            this.trackBarPitch.Size = new System.Drawing.Size(242, 45);
+            this.trackBarPitch.TabIndex = 18;
+            this.trackBarPitch.Scroll += new System.EventHandler(this.trackBarPitch_Scroll);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Miriam CLM", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.label9.Location = new System.Drawing.Point(32, 288);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(244, 16);
+            this.label9.TabIndex = 19;
+            this.label9.Text = "-6 -5 -4 -3- 2 -1  0  1  2  3  4  5  6";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(34, 241);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(151, 13);
+            this.label10.TabIndex = 20;
+            this.label10.Text = "PITCH: Parametro: fSemitones";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(25, 133);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(147, 13);
+            this.label11.TabIndex = 21;
+            this.label11.Text = "PITCH: Parametro: fPitchShift";
+            // 
+            // label1ValorPitch
+            // 
+            this.label1ValorPitch.AutoSize = true;
+            this.label1ValorPitch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1ValorPitch.ForeColor = System.Drawing.Color.IndianRed;
+            this.label1ValorPitch.Location = new System.Drawing.Point(286, 259);
+            this.label1ValorPitch.Name = "label1ValorPitch";
+            this.label1ValorPitch.Size = new System.Drawing.Size(69, 13);
+            this.label1ValorPitch.TabIndex = 22;
+            this.label1ValorPitch.Text = "Valor Pitch";
+            // 
             // pitchshift
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(408, 268);
+            this.ClientSize = new System.Drawing.Size(431, 374);
+            this.Controls.Add(this.label1ValorPitch);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.trackBarPitch);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.pictureBox1);
@@ -242,6 +303,7 @@
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarPitch)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -265,5 +327,10 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TrackBar trackBarPitch;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label1ValorPitch;
     }
 }

@@ -18,35 +18,26 @@ namespace Bass_Dll_PitchShift
     {
         
         private int _stream;
-        private int _fx;      
-        
+        private int _fx;
+        int _trackBarPitch=0;
         string _musicFile;
         
         int _trackBarPosition=7;
         //=======Pitchshift Values for Transposing : -6 -5 -4 -3- 2 -1  0  1  2  3  4  5  6
         double[] pitchArrayIndex = { 0.70,0.75,0.80,0.85,0.90,0.95, 1, 1.05, 1.10, 1.15, 1.25, 1.30, 1.40 };
         //=====TrackBar Valu Position  1    2    3    4    5    6   7    8     9     10   11    12     13
-        double pitchArrayValue;
-        
+        double pitchArrayValue;      
 
 
         public pitchshift()
         {
             InitializeComponent();
             BassFx.BASS_FX_GetVersion();            
-
         }
 
          private void Form2_Load(object sender, EventArgs e)
         {
-            // Initialize BASS.NET
-            if (!Bass.BASS_Init(-1, 44100, BASSInit.BASS_DEVICE_DEFAULT, IntPtr.Zero))
-            {
-                MessageBox.Show("BASS_Init error: " + Bass.BASS_ErrorGetCode());
-                return;
-            }
-
-
+            myFuntions.bassInit();                      
         } 
         private void buttonOpenFile_Click(object sender, EventArgs e)
         {
@@ -55,46 +46,37 @@ namespace Bass_Dll_PitchShift
             ofd.Filter = "Ficheiros|*.mp3";
             if(ofd.ShowDialog() == DialogResult.OK)
             {
-                _musicFile= ofd.FileName;
-                //Create a stream for audio file
-                
+                _musicFile= ofd.FileName;                
             }
         }
 
-        private void pitchShift()
+        private void pitchShift(int pitch)
         {   // MP3 Music Transpose funtion 
-            _fx = Bass.BASS_ChannelSetFX(_stream, BASSFXType.BASS_FX_BFX_PITCHSHIFT, 1);
             BASS_BFX_PITCHSHIFT parametros = new BASS_BFX_PITCHSHIFT();
             Bass.BASS_FXGetParameters(_fx, parametros);
-            parametros.fPitchShift = (float)pitchArrayValue; // Defines the shift transpose value            
-            parametros.fSemitones = 0;  // Define the initial pitch value, 0=reset;            
+            parametros.fPitchShift = (float)pitchArrayValue; // Defines the shift transpose value Prioritario a fSemitone            
+            parametros.fSemitones = pitch;  // Define the initial pitch value, 0=reset;            
             Bass.BASS_FXSetParameters(_fx, parametros);
-
             if (_fx == 0)
             {
                 MessageBox.Show("BASS_ChannelSetFX error: " + Bass.BASS_ErrorGetCode());
                 return;
             }
-
         } 
-
         private void buttonPlay_Click(object sender, EventArgs e)
-        {            
+        {
             _stream = Bass.BASS_StreamCreateFile(_musicFile, 0, 0, BASSFlag.BASS_DEFAULT);
-            pitchShift();
-            Bass.BASS_ChannelPlay(_stream, false);
- 
-            
+            //_stream = Bass.BASS_StreamCreateFile(_musicFile, 0, 0, BASSFlag.BASS_STREAM_DECODE);
+            _fx = Bass.BASS_ChannelSetFX(_stream, BASSFXType.BASS_FX_BFX_PITCHSHIFT, 0);
+            //pitchShift(_trackBarPitch);            
+            Bass.BASS_ChannelPlay(_stream, false);            
         }
-
-
-
         private void Form2_FormClosing(object sender, FormClosingEventArgs e)
         {
             // Free resources when closing the form
-            Bass.BASS_ChannelRemoveFX(_stream, _fx);
-            Bass.BASS_StreamFree(_stream);
-            Bass.BASS_Free();
+            //Bass.BASS_ChannelRemoveFX(_stream, _fx);
+            //Bass.BASS_StreamFree(_stream);
+            //Bass.BASS_Free();
         }
 
         
@@ -136,19 +118,12 @@ namespace Bass_Dll_PitchShift
             label1.Text=pitchArrayValue.ToString();
             trackBar1.Value = _trackBarPosition;
         }
-
         private void buttonStop_Click(object sender, EventArgs e)
-        {
-            //Bass.BASS_ChannelRemoveFX(_fx, _stream);
-            //Bass.BASS_StreamFree(_stream);
-            //Bass.BASS_StreamFree(_fx);
-            //Bass.BASS_Stop();
+        {          
             Bass.BASS_ChannelStop(_stream);
-            //Bass.BASS_ChannelPause(_stream);           
-
+            //Bass.BASS_ChannelRemoveDSP(_stream, _fx);
+            Bass.BASS_ChannelRemoveFX(_stream,_fx);
         }
-
-
 
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
@@ -165,8 +140,6 @@ namespace Bass_Dll_PitchShift
             label1.Text=pitchArrayValue.ToString();
         }
 
-
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             string url = "https://www.un4seen.com/";
@@ -178,9 +151,11 @@ namespace Bass_Dll_PitchShift
        
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void trackBarPitch_Scroll(object sender, EventArgs e)
         {
-            Bass.BASS_ChannelPause((_stream));
+            label1ValorPitch.Text = trackBarPitch.Value.ToString();
+            _trackBarPitch = trackBarPitch.Value;
+            pitchShift(_trackBarPitch);                        
         }
     }
 }
